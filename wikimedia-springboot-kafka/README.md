@@ -5,3 +5,11 @@ streaming analytics,data integration, and mission-critical applications.
 - Download kafka `https://kafka.apache.org/quickstart`.
 - Start Zookeeper service `bin/zookeeper-server-start.sh config/zookeeper.properties`.
 - Start kafka broker service `bin/kafka-server-start.sh config/server.properties`.
+- U can also use brew to install kafka on a MAC `brew install kafka`.
+- Start Zookeeper `brew services start zookeeper` and kafka service `brew services start kafka`.
+#### Producer
+- Define a topic for the producer plus a key and value serializers in the application.properties. 
+- Add dependencies for event source from MVN repository `https://mvnrepository.com/artifact/com.launchdarkly/okhttp-eventsource`.
+- Add Jackson JSON Maven dependency `https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core`.
+- Add Jackson Databind dependency `https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.17.0`
+- And this dependency `https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp/4.12.0`
