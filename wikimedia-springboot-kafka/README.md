@@ -1,4 +1,4 @@
-## Kafka Projects-Microservices
+## Wikimedia-Microservices
 Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, 
 streaming analytics,data integration, and mission-critical applications.
 #### Local Environment Set-Up
@@ -17,4 +17,4 @@ streaming analytics,data integration, and mission-critical applications.
 - Create a consumer database to save wikimedia content
 - Add Spring Data JPA and MySQL driver to the consumer using spring initializr.
 - Configure SQL and Hibernate properties using application.properties.
-- `NOTE:` MysqlDataTruncation Error -> add `?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false` on the database URL.
+`NOTE:` MysqlDataTruncation Error -> add `?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false` on the database URL.
