@@ -5,6 +5,7 @@ import com.launchdarkly.eventsource.background.BackgroundEventHandler;
 import com.launchdarkly.eventsource.background.BackgroundEventSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class WikimediaChangeProducer {
 
+    @Value("${spring.kafka.topic.name}")
+    private String topicName;
     private static final Logger LOGGER = LoggerFactory.getLogger(WikimediaChangeProducer.class);
 
     private KafkaTemplate<String ,String> kafkaTemplate;
@@ -24,10 +27,9 @@ public class WikimediaChangeProducer {
     }
 
     public void sendMessage(){
-        String topic = "wikimedia_recentchange";
 
         // Read real time stream data from wikimedia, we use event source
-        BackgroundEventHandler backgroundEventHandler = new WikimediaChangeHandler(kafkaTemplate, topic);
+        BackgroundEventHandler backgroundEventHandler = new WikimediaChangeHandler(kafkaTemplate, topicName);
         String url = "https://stream.wikimedia.org/v2/stream/recentchange";
         BackgroundEventSource.Builder builder = new BackgroundEventSource.Builder(backgroundEventHandler, new EventSource.Builder(URI.create(url)));
 

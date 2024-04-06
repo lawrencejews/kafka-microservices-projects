@@ -28,7 +28,7 @@ public class WikimediaChangeHandler implements BackgroundEventHandler {
 
     }
 
-    // Changes handler
+    // Change handler
     @Override
     public void onMessage(String s, MessageEvent messageEvent) throws Exception {
         LOGGER.info(String.format("event data -> %s", messageEvent.getData()));
